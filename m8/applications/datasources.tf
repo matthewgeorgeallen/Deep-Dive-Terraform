@@ -5,12 +5,12 @@
 data "consul_keys" "applications" {
   key {
     name = "applications"
-    path = terraform.workspace == "default" ? "applications/configuration/globo-primary/app_info" : "applications/configuration/globo-primary/${terraform.workspace}/app_info"
+    path = terraform.workspace == "default" ? "applications/configuration/deep-dive-matthewton/app_info" : "applications/configuration/deep-dive-matthewton/${terraform.workspace}/app_info"
   }
 
   key {
     name = "common_tags"
-    path = "applications/configuration/globo-primary/common_tags"
+    path = "applications/configuration/deep-dive-matthewton/common_tags"
   }
 }
 
@@ -20,7 +20,7 @@ data "terraform_remote_state" "networking" {
   config = {
     address = "${var.consul_address}:8500"
     scheme  = "http"
-    path    = terraform.workspace == "default" ? "networking/state/globo-primary" : "networking/state/globo-primary-env:${terraform.workspace}"
+    path    = terraform.workspace == "default" ? "networking/state/deep-dive-matthewton" : "networking/state/deep-dive-matthewton-env:${terraform.workspace}"
   }
 }
 

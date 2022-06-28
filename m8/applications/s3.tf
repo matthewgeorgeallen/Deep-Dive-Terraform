@@ -63,7 +63,7 @@ resource "aws_iam_role" "asg" {
 #### S3 policies
 
 resource "aws_iam_role_policy" "asg" {
-  name = "${terraform.workspace}-globo-primary-rds"
+  name = "${terraform.workspace}-matthewton-rds"
   role = aws_iam_role.asg.id
 
   policy = <<-EOF
